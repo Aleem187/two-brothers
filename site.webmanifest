@@ -1,0 +1,12 @@
+{
+  "name": "Two Brothers Chicken",
+  "short_name": "Two Brothers",
+  "description": "The best halal fried chicken in Woodbridge, VA — wings, cheesesteaks, burgers & more.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#16110E",
+  "theme_color": "#16110E",
+  "icons": [
+    { "src": "assets/img/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
