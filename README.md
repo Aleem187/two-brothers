@@ -14,7 +14,7 @@ Apache/Nginx, or any static host).
 - **Sections:** Hero · Menu (interactive, filterable) · About · Signature Showcase ·
   Catering · Reviews · Woodbridge Location (live map + open/closed status) · Order Online ·
   Contact.
-- **Premium design** built around the brand: crimson red, honey gold, warm charcoal & cream.
+- **Premium design** built around the logo: brand red, brand gold-yellow, warm charcoal & cream, with a modern Bricolage Grotesque + Plus Jakarta Sans type system.
 - **Smooth animations:** scroll-reveal (IntersectionObserver), sticky glass header,
   hero parallax, marquee, hover motion — all disabled automatically for users who prefer
   reduced motion.
@@ -41,7 +41,7 @@ Apache/Nginx, or any static host).
     ├── css/styles.css     # design system + layout
     ├── js/main.js         # interactions & animations
     ├── img/
-    │   ├── logo.svg        # brand logo (placeholder — replace with real logo)
+    │   ├── logo.svg        # brand logo (SVG recreation of the real logo — swap in the exact file anytime)
     │   ├── favicon.svg
     │   └── food/README.md  # where to drop food photos
     └── video/              # hero.mp4 goes here

@@ -1,14 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Two Brothers Chicken">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Two Brothers Chicken and Subs">
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#FFD873"/>
-      <stop offset="1" stop-color="#E8A33D"/>
+    <linearGradient id="l" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FCEE4B"/>
+      <stop offset="1" stop-color="#EAD500"/>
     </linearGradient>
   </defs>
-  <rect width="64" height="64" rx="14" fill="#16110E"/>
-  <path d="M32 8 L54 15 V36 C54 48 44 56 32 60 C20 56 10 48 10 36 V15 Z" fill="#C8102E" stroke="url(#g)" stroke-width="2.5"/>
-  <g fill="url(#g)">
-    <path d="M37 22c3-3 8-2 9 2 2-1 5 1 5 3s-2 4-5 3c1 2-1 5-3 5-1 3-4 5-7 4l-2 6h-3l1-5c-5-1-9-5-9-11 0-2 1-5 3-6-2-1-4-3-4-5 2 1 5 0 6-2 3-2 7-1 9 1z"/>
+  <rect width="64" height="64" rx="14" fill="#14100C"/>
+  <g transform="translate(32,32) rotate(-8)">
+    <rect x="-22" y="-22" width="44" height="44" rx="12" fill="#E11B22" stroke="#2A0B0C" stroke-width="2"/>
+    <g fill="none" stroke="#2A0B0C" stroke-width="9" stroke-linejoin="round">
+      <rect x="-15" y="-13" width="18" height="18" rx="6"/>
+      <rect x="-3" y="-4" width="18" height="18" rx="6"/>
+    </g>
+    <g fill="none" stroke="url(#l)" stroke-width="5.5" stroke-linejoin="round">
+      <rect x="-15" y="-13" width="18" height="18" rx="6"/>
+      <rect x="-3" y="-4" width="18" height="18" rx="6"/>
+    </g>
   </g>
-  <circle cx="39" cy="27" r="1.6" fill="#16110E"/>
 </svg>

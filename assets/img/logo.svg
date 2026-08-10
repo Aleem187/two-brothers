@@ -1,26 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 372 96" role="img" aria-label="Two Brothers Chicken">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 452 140" role="img" aria-label="Two Brothers Chicken and Subs">
   <defs>
-    <linearGradient id="tbGold" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#FFD873"/>
-      <stop offset="1" stop-color="#E8A33D"/>
+    <linearGradient id="tbLime" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FCEE4B"/>
+      <stop offset="1" stop-color="#EAD500"/>
     </linearGradient>
   </defs>
-  <!-- Emblem: rooster crest inside a shield -->
-  <g transform="translate(8,8)">
-    <path d="M40 2 L74 12 V44 C74 62 58 74 40 80 C22 74 6 62 6 44 V12 Z"
-          fill="#C8102E" stroke="url(#tbGold)" stroke-width="3"/>
-    <path d="M40 2 L74 12 V44 C74 62 58 74 40 80 C22 74 6 62 6 44 V12 Z"
-          fill="none" stroke="#16110E" stroke-width="1" opacity="0.25"/>
-    <!-- rooster -->
-    <g fill="url(#tbGold)">
-      <path d="M46 20c4-4 10-3 11 2 3-1 6 1 6 4 0 3-3 5-6 4 1 3-1 6-4 6-1 4-5 6-9 5l-2 8h-4l1-7c-6-1-11-6-11-13 0-3 1-6 3-8-3-1-5-3-5-6 3 1 6 0 8-2 3-2 8-2 11 1z"/>
+
+  <!-- Emblem: rotated red badge with interlocking lime loops -->
+  <g transform="translate(70,70) rotate(-8)">
+    <rect x="-58" y="-58" width="116" height="116" rx="28" fill="#E11B22" stroke="#2A0B0C" stroke-width="4"/>
+    <rect x="-58" y="-58" width="116" height="116" rx="28" fill="none" stroke="#F7C5C8" stroke-width="1" opacity="0.35"/>
+    <!-- two interlocking rounded links (the two brothers) -->
+    <g fill="none" stroke="#2A0B0C" stroke-width="20" stroke-linejoin="round">
+      <rect x="-40" y="-34" width="46" height="46" rx="16"/>
+      <rect x="-6" y="-12" width="46" height="46" rx="16"/>
     </g>
-    <circle cx="49" cy="26" r="2" fill="#16110E"/>
-    <path d="M28 52c8 5 20 5 28 0" fill="none" stroke="#16110E" stroke-width="2" stroke-linecap="round" opacity="0.35"/>
+    <g fill="none" stroke="url(#tbLime)" stroke-width="12" stroke-linejoin="round">
+      <rect x="-40" y="-34" width="46" height="46" rx="16"/>
+      <rect x="-6" y="-12" width="46" height="46" rx="16"/>
+    </g>
   </g>
+
   <!-- Wordmark -->
-  <g transform="translate(96,0)" font-family="'Anton','Oswald','Arial Narrow',sans-serif">
-    <text x="0" y="40" font-size="27" fill="#FBF3E7" letter-spacing="0.5">TWO BROTHERS</text>
-    <text x="0" y="71" font-size="27" fill="url(#tbGold)" letter-spacing="9.5">CHICKEN</text>
+  <g font-family="'Arial Black','Archivo Black',Impact,sans-serif" font-weight="900">
+    <text x="150" y="58" font-size="46" fill="#EE2027" stroke="#2A0B0C" stroke-width="1.4" letter-spacing="-1">Two Brothers</text>
+    <rect x="151" y="72" width="288" height="7" rx="3.5" fill="url(#tbLime)"/>
+    <text x="151" y="116" font-size="33" fill="url(#tbLime)" stroke="#C0151C" stroke-width="1.1" letter-spacing="0.5">Chicken &amp; Subs</text>
   </g>
 </svg>
