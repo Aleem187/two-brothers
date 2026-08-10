@@ -173,6 +173,30 @@
     });
   }
 
+  /* -------------------- Brand video (click-to-play) --------------------- */
+  // Facade: preload="none" + poster means nothing downloads until the user
+  // hits play, so the section costs almost nothing on initial load.
+  var videoPlay = document.getElementById('videoPlay');
+  var brandVideo = document.getElementById('brandVideo');
+  if (videoPlay && brandVideo) {
+    videoPlay.addEventListener('click', function () {
+      brandVideo.preload = 'auto';
+      brandVideo.controls = true;
+      var p = brandVideo.play();
+      if (p && typeof p.then === 'function') {
+        p.then(function () { videoPlay.classList.add('hidden'); })
+         .catch(function () { videoPlay.classList.remove('hidden'); });
+      } else {
+        videoPlay.classList.add('hidden');
+      }
+    });
+    brandVideo.addEventListener('play', function () { videoPlay.classList.add('hidden'); });
+    brandVideo.addEventListener('pause', function () {
+      if (!brandVideo.ended) videoPlay.classList.remove('hidden');
+    });
+    brandVideo.addEventListener('ended', function () { videoPlay.classList.remove('hidden'); });
+  }
+
   /* ----------------------------- Year ----------------------------------- */
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
