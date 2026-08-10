@@ -10,13 +10,32 @@ shows a clean gradient + emoji placeholder** (never a broken image).
 - Showcase / hero: ~1600 px wide, < 300 KB
 
 ## Expected filenames (assets/img/food/)
-buffalo-wings.jpg · honey-bbq-wings.jpg · tenders.jpg · wing-platter.jpg
-double-crispy.jpg · honey-butter.jpg · nashville.jpg · grilled-chicken.jpg
-chicken-cheesesteak.jpg · philly.jpg · gyro.jpg · buffalo-sub.jpg
-signature-burger.jpg · quarter-pounder.jpg · smash-burger.jpg
-whiting-dinner.jpg · fish-sandwich.jpg · shrimp.jpg
-onion-rings.jpg · fries.jpg · coleslaw.jpg · mac.jpg
-wing-combo.jpg · tender-combo.jpg · family-feast.jpg · kids-meal.jpg
+
+**Burgers & Sandwiches**
+big-moe.jpg · fire-burger.jpg · crispy-chicken-sandwich.jpg
+double-big-moe.jpg · double-fire-burger.jpg · double-crispy-chicken-sandwich.jpg
+
+**Subs**
+steak-cheese.jpg · grilled-chicken-sub.jpg · steak-deluxe.jpg
+
+**Hand Breaded Chicken Nuggets**
+6pc-nuggets.jpg · 10pc-nuggets.jpg
+
+**Fried Chicken**
+2pc-fried-chicken.jpg · 3pc-fried-chicken.jpg · 5pc-fried-chicken.jpg
+8pc-fried-chicken.jpg · 10pc-fried-chicken.jpg · 15pc-fried-chicken.jpg · 20pc-fried-chicken.jpg
+
+**Sides**
+small-fries.jpg · small-coleslaw.jpg · small-onion-rings.jpg
+large-fries.jpg · large-coleslaw.jpg · large-onion-rings.jpg · dinner-rolls.jpg
+
+**Dessert**
+toffee-crunch.jpg · strawberry-cheesecake.jpg · oreo-cheesecake.jpg
+snickers-cheesecake.jpg · peach-cobbler-cheesecake.jpg · reeses-cheesecake.jpg
+
+> Tip: the menu screenshots already show photos for most burgers, subs, nuggets,
+> the 2pc fried chicken, and all sides — save each image with the matching
+> filename above and it appears on the site automatically.
 
 ## Other image slots
 - `assets/img/hero-poster.jpg` — hero video poster / fallback still (1920×1080)
