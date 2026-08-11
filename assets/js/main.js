@@ -11,10 +11,15 @@
   /* ----------------------- Sticky header on scroll ---------------------- */
   var header = document.getElementById('header');
   var toTop = document.getElementById('toTop');
+  var progress = document.getElementById('scrollProgress');
   function onScroll() {
     var y = window.pageYOffset;
     if (header) header.classList.toggle('scrolled', y > 40);
     if (toTop) toTop.classList.toggle('show', y > 700);
+    if (progress) {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = (h > 0 ? Math.min((y / h) * 100, 100) : 0) + '%';
+    }
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
@@ -195,6 +200,33 @@
       if (!brandVideo.ended) videoPlay.classList.remove('hidden');
     });
     brandVideo.addEventListener('ended', function () { videoPlay.classList.remove('hidden'); });
+  }
+
+  /* ------------------------- Count-up numbers --------------------------- */
+  function animateCount(el) {
+    var target = parseFloat(el.getAttribute('data-count'));
+    if (isNaN(target)) return;
+    var dec = parseInt(el.getAttribute('data-dec') || '0', 10);
+    var suffix = el.getAttribute('data-suffix') || '';
+    var duration = 1500, startTime = null;
+    function tick(ts) {
+      if (startTime === null) startTime = ts;
+      var p = Math.min((ts - startTime) / duration, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = (target * eased).toFixed(dec) + suffix;
+      if (p < 1) { requestAnimationFrame(tick); }
+      else { el.textContent = target.toFixed(dec) + suffix; }
+    }
+    requestAnimationFrame(tick);
+  }
+  var counters = document.querySelectorAll('[data-count]');
+  if (counters.length && !prefersReduced && 'IntersectionObserver' in window) {
+    var cObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { animateCount(entry.target); cObs.unobserve(entry.target); }
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(function (el) { cObs.observe(el); });
   }
 
   /* ----------------------------- Year ----------------------------------- */

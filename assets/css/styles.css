@@ -266,13 +266,21 @@ h1, h2, h3, h4 { font-family: var(--serif); font-weight: 500; line-height: 1.08;
   backdrop-filter: blur(6px); margin-bottom: 28px;
 }
 .hero__badge b { background: var(--red); color: #fff; padding: 4px 11px; border-radius: 999px; font-size: 0.68rem; letter-spacing: 0.08em; }
-.hero h1 {
+.hero h1, .hero-title {
   font-family: var(--serif); font-weight: 500;
-  font-size: clamp(3rem, 8vw, 6rem); line-height: 1.0; letter-spacing: -0.025em; color: var(--cream);
+  font-size: clamp(3rem, 8vw, 6rem); line-height: 1.04; letter-spacing: -0.025em; color: var(--cream);
 }
-.hero h1 .hl { display: block; font-style: italic; font-weight: 400;
-  color: transparent; background: linear-gradient(100deg, var(--gold-2), var(--gold));
-  -webkit-background-clip: text; background-clip: text; }
+.hero-line { display: block; overflow: hidden; padding: 0.05em 0.08em; margin: -0.05em -0.08em; }
+.hero-line > span { display: block; transform: translateY(118%); opacity: 0; animation: heroRise 1s var(--ease) forwards; }
+.hero-line:nth-child(1) > span { animation-delay: 0.12s; }
+.hero-line:nth-child(2) > span { animation-delay: 0.26s; }
+.hero-line:nth-child(3) > span { animation-delay: 0.40s; }
+.hero-title .hl { font-style: italic; font-weight: 400; color: transparent;
+  background: linear-gradient(100deg, var(--gold) 18%, #FFE9A6 50%, var(--gold-2) 82%);
+  background-size: 220% 100%; -webkit-background-clip: text; background-clip: text;
+  animation: heroRise 1s var(--ease) 0.26s forwards, goldShimmer 5.5s ease-in-out 1.6s infinite; }
+@keyframes heroRise { to { transform: translateY(0); opacity: 1; } }
+@keyframes goldShimmer { 0%, 100% { background-position: 0% 0; } 50% { background-position: 100% 0; } }
 .hero p.sub { margin-top: 26px; font-size: clamp(1.08rem, 2.1vw, 1.32rem); line-height: 1.6; color: var(--cream-dim); max-width: 52ch; }
 .hero__actions { margin-top: 38px; display: flex; flex-wrap: wrap; gap: 16px; }
 .hero__stats { margin-top: 50px; display: flex; gap: 34px; flex-wrap: wrap; }
@@ -329,6 +337,9 @@ h1, h2, h3, h4 { font-family: var(--serif); font-weight: 500; line-height: 1.08;
 .menu-tab.active { background: var(--red); color: #fff; border-color: var(--red); box-shadow: 0 8px 20px rgba(193, 22, 29, 0.24); }
 
 .menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+/* Staggered cascade for menu cards (reveal + filter) */
+#menuGrid .menu-card:nth-child(3n+2) { transition-delay: 0.07s; }
+#menuGrid .menu-card:nth-child(3n) { transition-delay: 0.14s; }
 .menu-card {
   background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
   overflow: hidden; display: flex; flex-direction: column; position: relative; box-shadow: var(--shadow-sm);
@@ -599,6 +610,31 @@ h1, h2, h3, h4 { font-family: var(--serif); font-weight: 500; line-height: 1.08;
 .reveal-right.in { opacity: 1; transform: none; }
 .reveal-scale { opacity: 0; transform: scale(0.95); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
 .reveal-scale.in { opacity: 1; transform: none; }
+
+/* ------------------------------ Motion ---------------------------------- */
+/* Scroll progress bar */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0%; z-index: 200;
+  background: linear-gradient(90deg, var(--red), var(--gold-2)); transform-origin: left;
+  transition: width 0.1s linear; box-shadow: 0 0 10px rgba(231, 164, 0, 0.5);
+}
+
+/* Button icon nudge on hover */
+.btn .ico { transition: transform 0.35s var(--ease); }
+.btn:hover .ico { transform: translateX(5px); }
+
+/* Gentle drifting glow in dark accent bands */
+.order__glow, .video-glow { animation: glowDrift 9s ease-in-out infinite alternate; }
+@keyframes glowDrift { from { opacity: 0.75; transform: translateY(0) scale(1); } to { opacity: 1; transform: translateY(-2%) scale(1.06); } }
+
+/* Count-up numbers hold their width so layout doesn't jump */
+[data-count] { font-variant-numeric: tabular-nums; }
+
+@media (prefers-reduced-motion: reduce) {
+  .order__glow, .video-glow, .hero-title .hl { animation: none !important; }
+  .hero-line > span { transform: none; opacity: 1; }
+  .scroll-progress { display: none; }
+}
 
 /* ------------------------------ Utilities ------------------------------- */
 .hide { display: none !important; }

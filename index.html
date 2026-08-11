@@ -88,6 +88,8 @@
 </head>
 <body>
 
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
   <!-- ============================ HEADER ============================ -->
   <header class="header" id="header">
     <nav class="nav" aria-label="Primary">
@@ -144,10 +146,10 @@
     <div class="hero__inner">
       <div class="hero__content">
         <span class="hero__badge reveal"><b>Halal</b> Woodbridge, Virginia · Open Late</span>
-        <h1 class="reveal" data-delay="1">
-          The Best Halal
-          <span class="hl">Fried Chicken</span>
-          In Town
+        <h1 class="hero-title">
+          <span class="hero-line"><span>The Best Halal</span></span>
+          <span class="hero-line"><span class="hl">Fried Chicken</span></span>
+          <span class="hero-line"><span>In Town</span></span>
         </h1>
         <p class="sub reveal" data-delay="2">
           Hand-cut, marinated in-house and fried to a golden crunch. Antibiotic-free chicken,
@@ -161,8 +163,8 @@
           <a href="#menu" class="btn btn--ghost btn--lg">Explore the Menu</a>
         </div>
         <div class="hero__stats reveal" data-delay="4">
-          <div class="hero__stat"><b>100%</b><span>Halal Certified</span></div>
-          <div class="hero__stat"><b>4.5★</b><span>Loved Locally</span></div>
+          <div class="hero__stat"><b data-count="100" data-suffix="%">100%</b><span>Halal Certified</span></div>
+          <div class="hero__stat"><b data-count="4.5" data-dec="1" data-suffix="★">4.5★</b><span>Loved Locally</span></div>
           <div class="hero__stat"><b>Fresh</b><span>Made Daily</span></div>
         </div>
       </div>
@@ -518,7 +520,7 @@
       </div>
       <div class="reviews-top reveal">
         <div class="rating-badge">
-          <span class="score">4.5</span>
+          <span class="score" data-count="4.5" data-dec="1">4.5</span>
           <div>
             <div class="stars" aria-hidden="true">★★★★★</div>
             <small>Based on 768+ reviews</small>
