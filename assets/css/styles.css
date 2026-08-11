@@ -610,10 +610,57 @@ h1, h2, h3, h4 { font-family: var(--serif); font-weight: 800; line-height: 1.06;
 /* Count-up numbers hold their width so layout doesn't jump */
 [data-count] { font-variant-numeric: tabular-nums; }
 
+/* ---- Premium scroll-triggered media reveals (NE4-style) ----------------- */
+/* Only when motion is welcome and JS is on, so no-JS/reduced-motion see all. */
+/* NB: clip-path zeroes an element's IntersectionObserver rect, so clipped media
+   is revealed by propagation from a non-clipped ancestor (see main.js), never
+   observed directly. */
+@media (prefers-reduced-motion: no-preference) {
+  .js .menu-card__media, .js .about-media__frame {
+    clip-path: inset(101% 0 0 0 round var(--rm-r, 0px));
+    transition: clip-path 1.05s var(--ease); will-change: clip-path;
+  }
+  .js .menu-card__media.in, .js .about-media__frame.in {
+    clip-path: inset(0 0 0 0 round var(--rm-r, 0px));
+  }
+  .js .about-media__frame { --rm-r: 26px; }
+
+  /* Inner media scales down as it wipes in (parallax movers are JS-driven) */
+  .js .menu-card__media > img, .js .menu-card__media > .menu-card__ph,
+  .js .about-media__frame > img:not(.pmove), .js .about-media__frame > .about-media__ph:not(.pmove) {
+    transform: scale(1.14); transition: transform 1.25s var(--ease);
+  }
+  .js .menu-card__media.in > img, .js .menu-card__media.in > .menu-card__ph,
+  .js .about-media__frame.in > img:not(.pmove), .js .about-media__frame.in > .about-media__ph:not(.pmove) {
+    transform: scale(1);
+  }
+}
+/* Parallax movers: JS owns their transform, so kill CSS transitions on them */
+.pmove { transition: none !important; }
+
+/* Premium hover: light sheen sweep across menu-card imagery */
+.menu-card__media::after {
+  content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none; opacity: 0;
+  background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.16) 50%, transparent 70%);
+  transform: translateX(-70%); transition: opacity 0.4s var(--ease), transform 0.9s var(--ease);
+}
+.menu-card:hover .menu-card__media::after { opacity: 1; transform: translateX(70%); }
+
+/* Gentle tilt on scale reveals (showcase / location) */
+.reveal-scale { transform: scale(0.95) rotate(-1deg); }
+
+/* About & showcase imagery lift a touch more on hover */
+.about-media__frame { transition: transform 0.6s var(--ease), box-shadow 0.6s var(--ease); }
+.about-media:hover .about-media__frame { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.about-media__frame > img, .about-media__frame > .about-media__ph { transition: transform 1.25s var(--ease); }
+.about-media:hover .about-media__frame > img:not(.pmove),
+.about-media:hover .about-media__frame > .about-media__ph:not(.pmove) { transform: scale(1.04); }
+
 @media (prefers-reduced-motion: reduce) {
   .order__glow, .video-glow, .hero-title .hl { animation: none !important; }
   .hero-line > span { transform: none; opacity: 1; }
   .scroll-progress { display: none; }
+  .reveal-scale { transform: scale(1); }
 }
 
 /* ------------------------------ Utilities ------------------------------- */

@@ -45,20 +45,71 @@
     if (e.key === 'Escape') setMenu(false);
   });
 
-  /* --------------------------- Scroll reveal ---------------------------- */
+  /* ------------------- Scroll reveal + media wipes ---------------------- */
+  // Entrance reveals (fade/slide/scale) toggle `.in`. Clipped media wipes are
+  // revealed by propagation: clip-path zeroes an element's IntersectionObserver
+  // rect, so a clipped element can't trigger itself — instead we reveal its
+  // clipped media descendants when the (non-clipped) reveal element fires.
+  var CLIP_SEL = '.menu-card__media, .about-media__frame';
+  function revealTarget(el) {
+    el.classList.add('in');
+    var media = el.querySelectorAll(CLIP_SEL);
+    for (var i = 0; i < media.length; i++) media[i].classList.add('in');
+  }
   var revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
   if (prefersReduced || !('IntersectionObserver' in window)) {
-    revealEls.forEach(function (el) { el.classList.add('in'); });
+    revealEls.forEach(revealTarget);
+    document.querySelectorAll(CLIP_SEL).forEach(function (el) { el.classList.add('in'); });
   } else {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          entry.target.classList.add('in');
+          revealTarget(entry.target);
           io.unobserve(entry.target);
         }
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
     revealEls.forEach(function (el) { io.observe(el); });
+  }
+
+  /* --------------------- Light parallax (desktop) ----------------------- */
+  // Subtle translate on big feature imagery. Off for reduced-motion / small
+  // screens / no-hover (touch) to protect performance and avoid jank.
+  var canParallax = !prefersReduced &&
+    window.matchMedia('(min-width: 861px)').matches &&
+    window.matchMedia('(hover: hover)').matches;
+  if (canParallax) {
+    var pItems = [];
+    document.querySelectorAll('.about-media__frame, .catering__media').forEach(function (wrap) {
+      var movers = wrap.querySelectorAll(':scope > img, :scope > .about-media__ph, :scope > .catering__ph');
+      if (!movers.length) return;
+      movers.forEach(function (m) { m.classList.add('pmove'); m.style.transform = 'scale(1.16)'; });
+      pItems.push({ wrap: wrap, movers: movers });
+    });
+    if (pItems.length) {
+      var ticking = false;
+      var runParallax = function () {
+        ticking = false;
+        var vh = window.innerHeight;
+        for (var i = 0; i < pItems.length; i++) {
+          var it = pItems[i];
+          var rect = it.wrap.getBoundingClientRect();
+          if (rect.bottom < -120 || rect.top > vh + 120) continue;
+          var center = rect.top + rect.height / 2;
+          var prog = (center - vh / 2) / (vh / 2 + rect.height / 2); // ~ -1..1
+          if (prog > 1) prog = 1; else if (prog < -1) prog = -1;
+          var y = (-prog * rect.height * 0.06).toFixed(1);
+          var t = 'translate3d(0,' + y + 'px,0) scale(1.16)';
+          for (var j = 0; j < it.movers.length; j++) { it.movers[j].style.transform = t; }
+        }
+      };
+      var onParallaxScroll = function () {
+        if (!ticking) { ticking = true; requestAnimationFrame(runParallax); }
+      };
+      window.addEventListener('scroll', onParallaxScroll, { passive: true });
+      window.addEventListener('resize', onParallaxScroll, { passive: true });
+      runParallax();
+    }
   }
 
   /* ---------------------------- Menu filter ----------------------------- */
