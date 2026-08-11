@@ -38,9 +38,9 @@ snickers-cheesecake.jpg · peach-cobbler-cheesecake.jpg · reeses-cheesecake.jpg
 > filename above and it appears on the site automatically.
 
 ## Other image slots
-- `assets/img/hero-visual.jpg` — the hero showcase photo in the right-hand panel
-  (portrait, ~4:5, ~960×1200). Until added, an on-brand gradient + emoji placeholder
-  shows, framed by the floating rating / "made fresh" cards.
+- `assets/img/hero.jpg` — the big full-bleed hero background photo (landscape, ~1920×1200,
+  a hero-worthy plate of chicken). A dark scrim keeps the headline readable on top. Until
+  added, an on-brand gradient placeholder shows.
 - `assets/img/og-image.jpg` — social share image (1200×630)
 - `assets/img/about/kitchen.jpg` — About section photo (portrait, ~1000×1250)
 - `assets/img/catering/spread.jpg` — Catering photo (landscape)

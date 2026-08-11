@@ -14,9 +14,10 @@ Apache/Nginx, or any static host).
 - **Sections:** Hero · Menu (interactive, filterable) · About · Signature Showcase ·
   Catering · Reviews · Woodbridge Location (live map + open/closed status) · Order Online ·
   Contact.
-- **Premium "Warm Editorial" design**: a magazine-style warm cream/paper body with deep
-  espresso ink, brand-red accent and brand-yellow highlights, bookended by a dramatic dark
-  hero and footer. Typeset in **Fraunces** (serif display) + **Plus Jakarta Sans** (body).
+- **Bold modern fast-casual design**: warm cream/white body with charcoal text, punchy
+  brand-red accents and subtle yellow highlights, plus dramatic charcoal hero/footer bands.
+  A food-forward, full-bleed hero with one bold headline and a single "Order Online" CTA.
+  Typeset in **Archivo** (bold display) + **Plus Jakarta Sans** (body).
 - **Smooth animations:** scroll-reveal (IntersectionObserver), sticky glass header,
   hero parallax, marquee, hover motion — all disabled automatically for users who prefer
   reduced motion.
