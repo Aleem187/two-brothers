@@ -132,16 +132,11 @@
   <main>
   <!-- ============================= HERO ============================= -->
   <section class="hero" id="home">
-    <div class="hero__fallback" aria-hidden="true"></div>
-    <div class="hero__media" aria-hidden="true">
-      <!-- Drop the brand video at assets/video/hero.mp4 (with a poster frame) to enable it.
-           If the file is absent, the CSS fallback backdrop above is shown. -->
-      <video autoplay muted loop playsinline preload="none" poster="assets/img/hero-poster.jpg" onerror="this.style.display='none'">
-        <source src="assets/video/hero.mp4" type="video/mp4" />
-      </video>
+    <div class="hero__bg" aria-hidden="true">
+      <span class="hero__glow hero__glow--red"></span>
+      <span class="hero__glow hero__glow--gold"></span>
+      <div class="hero__grain"></div>
     </div>
-    <div class="hero__overlay" aria-hidden="true"></div>
-    <div class="hero__grain" aria-hidden="true"></div>
 
     <div class="hero__inner">
       <div class="hero__content">
@@ -152,20 +147,36 @@
           <span class="hero-line"><span>In Town</span></span>
         </h1>
         <p class="sub reveal" data-delay="2">
-          Hand-cut, marinated in-house and fried to a golden crunch. Antibiotic-free chicken,
-          grass-fed beef, and our signature Moe sauce — crafted fresh every single day.
+          Hand-cut, marinated in-house and fried to a golden crunch — antibiotic-free chicken,
+          grass-fed beef, and our signature Moe sauce, crafted fresh every single day.
         </p>
         <div class="hero__actions reveal" data-delay="3">
-          <a href="https://order.toasttab.com/online/two-brothers-chicken-woodbridge" class="btn btn--gold btn--lg" target="_blank" rel="noopener">
+          <a href="https://order.toasttab.com/online/two-brothers-chicken-woodbridge" class="btn btn--gold btn--lg hero__cta" target="_blank" rel="noopener">
             Order Online
             <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
           <a href="#menu" class="btn btn--ghost btn--lg">Explore the Menu</a>
         </div>
-        <div class="hero__stats reveal" data-delay="4">
-          <div class="hero__stat"><b data-count="100" data-suffix="%">100%</b><span>Halal Certified</span></div>
-          <div class="hero__stat"><b data-count="4.5" data-dec="1" data-suffix="★">4.5★</b><span>Loved Locally</span></div>
-          <div class="hero__stat"><b>Fresh</b><span>Made Daily</span></div>
+        <ul class="hero__trust reveal" data-delay="4">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>100% Halal Certified</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2C9 6 7 8 7 12a5 5 0 0 0 10 0c0-4-2-6-5-10z" stroke-linecap="round" stroke-linejoin="round"/></svg>Cut &amp; Fried Fresh</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round" stroke-linejoin="round"/></svg>Open Late, 7 Days</li>
+        </ul>
+      </div>
+
+      <div class="hero__visual reveal-scale" data-delay="2">
+        <div class="hero__panel">
+          <div class="hero__panel-ring" aria-hidden="true"></div>
+          <div class="hero__panel-ph" aria-hidden="true">🍗</div>
+          <img src="assets/img/hero-visual.jpg" alt="Two Brothers Chicken signature plate" loading="eager" onerror="this.remove()" />
+        </div>
+        <div class="hero__chip hero__chip--rating">
+          <span class="hero__chip-score" data-count="4.5" data-dec="1">4.5</span>
+          <span class="hero__chip-meta"><span class="hero__chip-stars" aria-hidden="true">★★★★★</span><span class="hero__chip-label">768+ reviews</span></span>
+        </div>
+        <div class="hero__chip hero__chip--fresh">
+          <span class="hero__chip-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2C9 6 7 8 7 12a5 5 0 0 0 10 0c0-4-2-6-5-10z" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="hero__chip-text"><b>Made Fresh Daily</b><span>Never frozen</span></span>
         </div>
       </div>
     </div>

@@ -38,7 +38,9 @@ snickers-cheesecake.jpg · peach-cobbler-cheesecake.jpg · reeses-cheesecake.jpg
 > filename above and it appears on the site automatically.
 
 ## Other image slots
-- `assets/img/hero-poster.jpg` — hero poster / fallback still (1920×1080)
+- `assets/img/hero-visual.jpg` — the hero showcase photo in the right-hand panel
+  (portrait, ~4:5, ~960×1200). Until added, an on-brand gradient + emoji placeholder
+  shows, framed by the floating rating / "made fresh" cards.
 - `assets/img/og-image.jpg` — social share image (1200×630)
 - `assets/img/about/kitchen.jpg` — About section photo (portrait, ~1000×1250)
 - `assets/img/catering/spread.jpg` — Catering photo (landscape)
@@ -50,7 +52,5 @@ snickers-cheesecake.jpg · peach-cobbler-cheesecake.jpg · reeses-cheesecake.jpg
   presses play — zero cost to initial page load.
 - `assets/img/video-poster.jpg` — poster frame shown before play (1600×900). Until it's
   added, an on-brand gradient placeholder is shown, so the section still looks intentional.
-- *(optional)* `assets/video/hero.mp4` — a separate, silent hero background loop, if you
-  ever want ambient motion behind the hero. Leave empty to keep the fast gradient hero.
 
 You can reuse the images and video from the current twobrotherschicken.com site.
